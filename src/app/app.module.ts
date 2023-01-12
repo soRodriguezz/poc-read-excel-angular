@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     DragDropComponent,
-    DragDropFileUploadDirective,
+    DragDropFileUploadDirective
   ],
   imports: [
     BrowserModule,

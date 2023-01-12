@@ -6,7 +6,7 @@
 body {
   margin: 0;
   padding: 25px 0 0 0;
-  background: #291464;
+  background: #426600;
 }
 
 .container {
@@ -19,7 +19,6 @@ body {
 }
 
 .fileupload {
-  background-image: url("./assets/upload-icon.png");
   background-repeat: no-repeat;
   background-size: 100px;
   background-position: center;
@@ -27,10 +26,8 @@ body {
   height: 200px;
   width: 100%;
   cursor: pointer;
-  /* border: 2px dashed #0f68ff; */
   border-radius: 6px;
   margin-bottom: 25px;
-  background-position: center 28px;
 }
 
 .ddinfo {
@@ -43,7 +40,7 @@ body {
 .image-list {
   display: flex;
   width: 100%;
-  background: #C2DFFC;
+  background: #c2dffc;
   border: 1px solid;
   border-radius: 3px;
   padding: 10px 10px 10px 15px;
@@ -63,7 +60,7 @@ body {
 
 .message {
   text-align: center;
-  color: #C2DFFC;
+  color: #c2dffc;
 }
 
 .remove {
@@ -96,9 +93,9 @@ body {
   overflow-y: auto;
 }
 
-@media(max-width: 767px) {
+@media (max-width: 767px) {
   .container {
-      width: 280px;
-      margin: 20px auto 100px;
+    width: 280px;
+    margin: 20px auto 100px;
   }
 }

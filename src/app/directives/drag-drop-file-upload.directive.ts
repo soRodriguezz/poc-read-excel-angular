@@ -10,34 +10,45 @@ import {
   selector: '[appDragDropFileUpload]',
 })
 export class DragDropFileUploadDirective {
-  @Output() fileDropped = new EventEmitter<any>();
+  @Output() fileDropped = new EventEmitter<File>();
 
-  @HostBinding('style.background-color') private background = '#ffffff';
+  @HostBinding('style.background-color')
+  private background = '#ffffff';
+
+  @HostBinding('style.background-image')
+  private image = 'url("./assets/upload-icon.png")';
+
+  @HostBinding('style.border')
+  private border = '';
 
   // Dragover Event - cambia el color del div al arrastar el archivo
-  @HostListener('dragover', ['$event']) dragOver(event: DragEvent) {
+  @HostListener('dragover', ['$event'])
+  dragOver(event: DragEvent) {
     event.preventDefault();
     event.stopPropagation();
-    this.background = '#e2eefd';
+    this.background = '#E2FDE3';
+    this.border = '2px dashed #075F0A';
   }
 
   // Dragleave Event - se suelta el evento y cambia color
-  @HostListener('dragleave', ['$event']) public dragLeave(event: DragEvent) {
+  @HostListener('dragleave', ['$event'])
+  public dragLeave(event: DragEvent) {
     event.preventDefault();
     event.stopPropagation();
     this.background = '#ffffff';
+    this.border = '';
   }
 
   // Drop Event - al soltar el archivo
-  @HostListener('drop', ['$event']) public drop(event: DragEvent) {
+  @HostListener('drop', ['$event'])
+  public drop(event: DragEvent) {
     event.preventDefault();
     event.stopPropagation();
     this.background = '#ffffff';
+    this.border = '';
 
-    const files: FileList  = event.dataTransfer!.files; // cantidad de archivos adjuntos
+    const file: File = event.dataTransfer!.files[0]; // cantidad de archivos adjuntos
 
-    if (files.length > 0) {
-      this.fileDropped.emit(files);
-    }
+    this.fileDropped.emit(file);
   }
 }
