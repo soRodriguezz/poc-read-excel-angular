@@ -1,0 +1,30 @@
+<div class="container fileUploadWrapper">
+  <form>
+    <div class="row">
+      <div class="col-md-12">
+        <div
+          class="fileupload"
+          appDragDropFileUpload
+          (click)="fileField.click()"
+          (fileDropped)="upload($event)"
+        >
+          <span class="ddinfo">Elija un archivo o arrastre aquí</span>
+          <input
+            type="file"
+            name="avatars"
+            #fileField
+            (change)="upload($any($event).target.files)"
+            hidden
+            multiple
+          />
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="image-list" *ngFor="let file of fileArr">
+          <p>{{ file.file.name }}</p>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
