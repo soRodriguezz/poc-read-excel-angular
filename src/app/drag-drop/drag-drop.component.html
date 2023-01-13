@@ -1,33 +1,54 @@
 <div class="container fileUploadWrapper">
-  <form>
-    <div class="row">
-      <div class="col-md-12">
-        <div
-          #fileDragDrop
-          class="fileupload"
-          appDragDropFileUpload
-          (click)="fileField.click()"
-          (fileDropped)="upload($event)"
+  <div class="row">
+    <div class="col-md-12">
+      <div
+        class="fileupload"
+        appDragDropFileUpload
+        (click)="fileField.click()"
+        (fileDropped)="upload($event)"
+      >
+        <span *ngIf="!excelList.length" class="ddinfo"
+          >Elija un archivo o arrastre aquí</span
+        >
+        <span *ngIf="excelList.length" class="ddinfo"
+          ><p>{{ excelList[0].name }}</p></span
         >
 
-          <span *ngIf="!excelList.length" class="ddinfo">Elija un archivo o arrastre aquí</span>
-          <span *ngIf="excelList.length" class="ddinfo"><p>{{ excelList[0].name }}</p></span>
-
-          <input
-            type="file"
-            name="avatars"
-            #fileField
-            (change)="upload($any($event).target.files[0])"
-            hidden
-          />
-        </div>
-      </div>
-
-      <div class="col-md-12">
-        <div *ngIf="excelList.length" class="image-list">
-          <button class="btn btn-danger" (click)="eliminarAdjunto()">Eliminar</button>
-        </div>
+        <input
+          type="file"
+          #fileField
+          (change)="upload($any($event).target.files[0])"
+          hidden
+        />
       </div>
     </div>
-  </form>
+
+    <div class="col-md-12">
+      <div *ngIf="excelList.length" class="image-list">
+        <button class="btn btn-danger" (click)="eliminarAdjunto()">
+          Eliminar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <table *ngIf="results.length > 0" class="table table-bordered">
+    <caption></caption>
+    <thead>
+      <tr>
+        <th scope="col">Rut</th>
+        <th scope="col">Gerencia</th>
+        <th scope="col">Necesidad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let result of results">
+        <td>{{ result.rut }}</td>
+        <td>{{ result.gerencia }}</td>
+        <td>{{ result.necesidad }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
