@@ -127,12 +127,12 @@ export class DragDropComponent {
         });
       });
 
-      console.log( nullFields );
-      console.log( `Ruts vacios: ${ rutNulos }` );
-      console.log( `Gerencias vacias: ${ gerenciaNulos }` );
-      console.log( `Necesidades vacias: ${ necesidadNulos }` );
+      console.log(nullFields);
+      console.log(`Ruts vacios: ${rutNulos}`);
+      console.log(`Gerencias vacias: ${gerenciaNulos}`);
+      console.log(`Necesidades vacias: ${necesidadNulos}`);
 
-      subscriber.next( formarJSON ); // retorna los datos al subscribirse
+      subscriber.next(formarJSON); // retorna los datos al subscribirse
       subscriber.complete(); // termina la subscripcion
     };
   }

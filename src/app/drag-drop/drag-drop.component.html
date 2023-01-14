@@ -13,7 +13,6 @@
         <span *ngIf="excelList.length" class="ddinfo"
           ><p>{{ excelList[0].name }}</p></span
         >
-
         <input
           type="file"
           #fileField
@@ -22,7 +21,6 @@
         />
       </div>
     </div>
-
     <div class="col-md-12">
       <div *ngIf="excelList.length" class="image-list">
         <button class="btn btn-danger" (click)="eliminarAdjunto()">
@@ -31,6 +29,21 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="d-flex justify-content-center">
+  <ul class="wrapper">
+    <li class="icon facebook">
+      <span class="tooltip">
+        <img
+          src="../../assets/tooltip.png"
+          alt="tooltip"
+          width="800"
+          height="500"
+        />
+      </span>
+    </li>
+  </ul>
 </div>
 
 <div class="container">
